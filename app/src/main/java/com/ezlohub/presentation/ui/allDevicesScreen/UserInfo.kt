@@ -22,17 +22,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ezlohub.R
+import com.ezlohub.presentation.ui.theme.EzloHubTheme
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserInfo(modifier: Modifier) {
-
         Column {
             Surface(
-                color = MaterialTheme.colorScheme.errorContainer,
+                color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(
@@ -50,9 +54,21 @@ fun UserInfo(modifier: Modifier) {
                         contentScale = ContentScale.Crop,
                     )
                     Spacer(modifier = Modifier.height(8.dp))
-                    Text(text = "John Wayne")
+                    Text(fontWeight = FontWeight.Bold,
+                        text = "John Wayne",
+                        color = MaterialTheme.colorScheme.onPrimary,
+                        fontSize = 26.sp,
+                        style = MaterialTheme.typography.titleMedium)
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }
     }
+
+@Preview
+@Composable
+private fun PrevUserInfo() {
+    EzloHubTheme {
+        UserInfo(Modifier)
+    }
+}

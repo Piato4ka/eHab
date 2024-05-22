@@ -1,4 +1,4 @@
-package com.ezlohub.presentation.ui.allDevices
+package com.ezlohub.domain.model
 
 data class DeviceInfo (
     val imageRes: Int,
