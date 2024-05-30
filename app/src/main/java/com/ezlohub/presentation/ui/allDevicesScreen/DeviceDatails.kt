@@ -1,4 +1,4 @@
-package com.ezlohub.presentation.ui.allDevices
+package com.ezlohub.presentation.ui.allDevicesScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ezlohub.R
-import com.ezlohub.domain.model.Device
 import com.ezlohub.domain.model.DeviceInfo
 import com.ezlohub.presentation.ui.theme.EzloHubTheme
 
@@ -35,7 +34,7 @@ fun DeviceDetails(deviceItem: DeviceInfo) {
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.secondary,
 
-    ) {
+        ) {
         Column(modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)) {
             Row(
                 horizontalArrangement = Arrangement.Center,
@@ -49,31 +48,41 @@ fun DeviceDetails(deviceItem: DeviceInfo) {
                         .clip(RoundedCornerShape(16.dp)),
                     contentScale = ContentScale.Crop,
                 )
-                Text (modifier = Modifier.fillMaxWidth(),
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
                     color = MaterialTheme.colorScheme.onPrimary,
                     textAlign = TextAlign.Center,
                     text = deviceItem.name,
                     fontSize = 22.sp,
-                    style = MaterialTheme.typography.titleMedium)
+                    style = MaterialTheme.typography.titleMedium
+                )
             }
             Spacer(modifier = Modifier.size(8.dp))
-            Text(text = deviceItem.sn,
+            Text(
+                text = deviceItem.sn,
                 fontSize = 18.sp,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSecondary)
-            Text(text = deviceItem.macAddress,
+                color = MaterialTheme.colorScheme.onSecondary
+            )
+            Text(
+                text = deviceItem.macAddress,
                 fontSize = 18.sp,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSecondary)
+                color = MaterialTheme.colorScheme.onSecondary
+            )
             Spacer(modifier = Modifier.size(8.dp))
-            Text(text = deviceItem.firmware,
+            Text(
+                text = deviceItem.firmware,
                 fontSize = 18.sp,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSecondary)
-            Text(text = deviceItem.model,
+                color = MaterialTheme.colorScheme.onSecondary
+            )
+            Text(
+                text = deviceItem.model,
                 fontSize = 18.sp,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSecondary)
+                color = MaterialTheme.colorScheme.onSecondary
+            )
         }
     }
 }
@@ -83,7 +92,7 @@ fun DeviceDetails(deviceItem: DeviceInfo) {
 private fun DetailsPreview() {
     EzloHubTheme {
         val device = DeviceInfo(
-            R.drawable.john_wayne__portrait, "Name1",
+            R.drawable.vera_edge_big, "Name1",
             "sn: 2323232323",
             "mac adress 23232323",
             "firmware 30323003",
@@ -93,34 +102,3 @@ private fun DetailsPreview() {
     }
 }
 
-
-val mockItems = listOf(
-    DeviceInfo(
-        R.drawable.john_wayne__portrait, "Name1",
-        "1",
-        "",
-        "",
-        ""
-    ),
-    DeviceInfo(
-        R.drawable.john_wayne__portrait, "Name2",
-        "2",
-        "",
-        "",
-        ""
-    ),
-    DeviceInfo(
-        R.drawable.john_wayne__portrait, "Name3",
-        "3",
-        "",
-        "",
-        ""
-    ),
-    DeviceInfo(
-        R.drawable.john_wayne__portrait, "Name4",
-        "4",
-        "",
-        "",
-        ""
-    )
-)

@@ -1,4 +1,4 @@
-package com.ezlohub.presentation.ui.allDevices
+package com.ezlohub.presentation.ui.allDevicesScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,7 +6,6 @@ import com.ezlohub.R
 import com.ezlohub.domain.model.Device
 import com.ezlohub.domain.model.DeviceInfo
 import com.ezlohub.domain.repository.DeviceRepositoryImpl
-import com.ezlohub.presentation.ui.DeviceDetails
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -21,7 +20,7 @@ import javax.inject.Inject
 class AllDevicesViewModel @Inject constructor(private val deviceRepo: DeviceRepositoryImpl) :
     ViewModel() {
 
-    private val _devicesState = MutableStateFlow<AllDevicesState>(AllDevicesState(emptyList()))
+    private val _devicesState = MutableStateFlow(AllDevicesState(emptyList()))
     val devicesState: StateFlow<AllDevicesState> = _devicesState.asStateFlow()
 
     init {
@@ -35,9 +34,7 @@ class AllDevicesViewModel @Inject constructor(private val deviceRepo: DeviceRepo
                         R.drawable.john_wayne__portrait,
                         "John Wayne",
                     )
-
             }
-
         }
     }
 
@@ -64,29 +61,4 @@ class AllDevicesViewModel @Inject constructor(private val deviceRepo: DeviceRepo
         }.sortedBy { it.sn }
     }
 
-    fun onAction(action: AllDevicesAction) {
-        when (action) {
-            AllDevicesAction.OnDeviceClick -> openDeviceDetails()
-            AllDevicesAction.OnDeleteClicked -> deleteDevice()
-            AllDevicesAction.OnDeviceLongClick -> openDeviceSubMenu()
-            AllDevicesAction.OnCancelClicked -> closeDeviceSubMenu()
-        }
-    }
-
-    private fun getDevices() {
-
-    }
-
-    private fun openDeviceDetails() {
-    }
-
-    private fun deleteDevice() {
-    }
-
-    private fun openDeviceSubMenu() {
-    }
-
-    private fun closeDeviceSubMenu() {
-
-    }
 }

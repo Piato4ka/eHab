@@ -21,6 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "ezloHub"
 include(":app")
-include(":listFeature:domain")
-include(":listFeature:presentation")
-include(":listFeature:data")

@@ -1,6 +1,6 @@
 package com.ezlohub.domain.model
 
-data class DeviceInfo (
+data class DeviceInfo(
     val imageRes: Int,
     val name: String,
     val sn: String,
